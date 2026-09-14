@@ -1,0 +1,6 @@
+/build/
+/log/
+/reports/
+.env
+settings.json
+globals/log/

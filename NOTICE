@@ -1,0 +1,16 @@
+This server is built on the Pretendo Network NEX stack:
+
+  - github.com/PretendoNetwork/nex-go
+  - github.com/PretendoNetwork/nex-protocols-go
+  - github.com/PretendoNetwork/nex-protocols-common-go
+  - github.com/PretendoNetwork/plogger-go
+
+all licensed under the GNU Affero General Public License v3.0. No vendored
+fork of any of these is used.
+
+The Hot Wheels: World's Best Driver NEX configuration (game server ID
+hypotheses 10143300/10145100, NEX version placeholder 3.4.0) is first-party
+reverse engineering by this project - no public database (kinnay.github.io's
+nexwiiu.json, PretendoNetwork repos, GBATemp/wiiubrew) documents this title.
+See RECON.md for the full evidence trail and what remains unverified. No
+proprietary Nintendo or Firebrand Games code or assets are included.
