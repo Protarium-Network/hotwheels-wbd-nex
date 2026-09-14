@@ -63,11 +63,11 @@ PROTOCOL_COVERAGE.md.
 ```
         console                       this server
            │
-           │  ── LoginEx ─────────────▶  authentication server  :27400
+           │  ── LoginEx ─────────────▶  authentication server  :27600
            │  ◀─ Kerberos ticket +
            │     secure server address
            │
-           │  ── ticket, RegisterEx ──▶  secure server          :27401
+           │  ── ticket, RegisterEx ──▶  secure server          :27601
            │  ── GetRanking / UploadScore ▶  leaderboards        → PostgreSQL
 ```
 
@@ -103,7 +103,7 @@ decrypted and validated, and each player's NEX password is derived as
 ### Without Docker
 
 ```bash
-export PN_HWWBD_AUTH_PORT=27400 PN_HWWBD_SECURE_PORT=27401
+export PN_HWWBD_AUTH_PORT=27600 PN_HWWBD_SECURE_PORT=27601
 export PN_HWWBD_SECURE_HOST=<LAN-IP-of-this-machine>
 export PN_HWWBD_POSTGRES_URI='postgres://hwwbd:hwwbd@localhost:5432/hwwbd?sslmode=disable'
 export PN_HWWBD_LOCAL_MODE=1
@@ -117,7 +117,7 @@ hypotheses pointing at this server, each restricted to its own title so a
 console never gets routed to the wrong one:
 
 ```
-PN_GAME_SERVERS=10143300=<host>:27400:0005000010143300;10145100=<host>:27400:0005000010145100
+PN_GAME_SERVERS=10143300=<host>:27600:0005000010143300;10145100=<host>:27600:0005000010145100
 ```
 
 `PN_HWWBD_SECURE_HOST` **must be short** (~15 chars) — the retail binary

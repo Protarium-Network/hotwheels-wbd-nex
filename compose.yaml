@@ -21,8 +21,8 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      PN_HWWBD_AUTH_PORT: "27400"
-      PN_HWWBD_SECURE_PORT: "27401"
+      PN_HWWBD_AUTH_PORT: "27600"
+      PN_HWWBD_SECURE_PORT: "27601"
       # The address a console is told to reach the secure server on. Override
       # in .env or the shell; defaults to localhost for a LAN test.
       PN_HWWBD_SECURE_HOST: ${PN_HWWBD_SECURE_HOST:-localhost}
@@ -36,8 +36,8 @@ services:
       PN_HWWBD_NEX_TOKEN_AES_KEY: ${PN_HWWBD_NEX_TOKEN_AES_KEY:-}
       PN_HWWBD_NEX_PASSWORD_SECRET: ${PN_HWWBD_NEX_PASSWORD_SECRET:-}
     ports:
-      - "27400:27400/udp"
-      - "27401:27401/udp"
+      - "27600:27600/udp"
+      - "27601:27601/udp"
     volumes:
       - ./settings.json:/home/go/app/settings.json:ro
 
