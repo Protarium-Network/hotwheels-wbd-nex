@@ -88,7 +88,18 @@ No Japan release exists. Released September 17, 2013 (USA) and September 20,
 from wiiubrew.org's Title Database instead, cross-referenced against
 GameTDB's game-code listing (`AHWEWR`/`AHWPWR`) via an archived snapshot.
 
-### Game server ID hypothesis - UNVERIFIED
+### Game server ID - CONFIRMED `10143300` (EUR console, 2026-09-14)
+
+wsc-account logged a real console request:
+`nex_token?game_server_id=10143300 (title=0005000010145100)`. The EUR title
+uses the ID derived from the USA title, i.e. one shared ID across regions.
+`10145100` is unconfirmed and only kept as a fallback route. Error 102-2482
+(INVALID_GAME_SERVER_ID) was caused by the legacy-tls nginx map
+(`/opt/wii-sports-club/deploy/legacy-tls/nginx.conf`, `$account_upstream`)
+having no entry for this ID, so the request fell through to wsc-account ->
+real Pretendo. Fix: `10143300 127.0.0.1:8118` in that map.
+
+### (original hypothesis, superseded above)
 
 `globals/config.go`'s `GameServerIDUSA = "10143300"` and
 `GameServerIDEUR = "10145100"` are the low 32 bits of each region's Title ID

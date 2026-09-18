@@ -11,7 +11,12 @@ package globals
 // situation as every sibling title). This is first-party reverse
 // engineering with no public starting point - see RECON.md.
 const (
-	// GameServerIDUSA/GameServerIDEUR are UNVERIFIED HYPOTHESES: the low 32
+	// CONFIRMED 2026-09-14 from wsc-account's request log: a real EUR console
+	// (title 0005000010145100) sends game_server_id=10143300, so that ID is
+	// shared across regions. GameServerIDEUR below was an unverified guess for
+	// the USA console and is kept only as a fallback route.
+	//
+	// GameServerIDUSA/GameServerIDEUR were UNVERIFIED HYPOTHESES: the low 32
 	// bits of each region's Title ID (USA 0005000010143300 / WUP-P-AHWE,
 	// Europe 0005000010145100 / WUP-P-AHWP - the EUR release also covers
 	// Australia; no Japan release exists), following the pattern that held
