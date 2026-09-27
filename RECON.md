@@ -134,7 +134,7 @@ Checked and confirmed empty for this title:
 This is first-party reverse engineering with no public starting point,
 unlike every other server in this project.
 
-## Access key & NEX version - UNKNOWN, pending bruteforce
+## Access key - CONFIRMED `783a01d2` (2026-09-18); NEX version still open
 
 No literal access key exists in the binary (see "Linked NEX surface" above)
 and no public database documents it. Recovery workflow (same one that
@@ -155,6 +155,12 @@ recovered Art of Balance's `96900116`):
    against the real capture until `LoginEx` -> `RequestTicket` -> secure
    `Register` succeeds - the same process every sibling server in this
    project went through.
+
+Step 5 was run against a real captured EUR SYN (signature
+`37766fec6357614fb200beab21dc05be`, 24-byte options variant) over the full
+8-hex keyspace - exactly one key matched, `783a01d2`, now wired into
+`globals/config.go`. The NEX version and wire-format flags below remain
+unconfirmed until that same SYN/CONNECT exchange is replayed end to end.
 
 `globals/config.go`'s `NEXMajor/Minor/Patch = 3.4.0` and both
 `LegacyConnectionSignature = true` / `UseStructureHeader = false` are

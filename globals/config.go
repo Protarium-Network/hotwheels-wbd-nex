@@ -28,12 +28,12 @@ const (
 	GameServerIDUSA = "10143300"
 	GameServerIDEUR = "10145100"
 
-	// AccessKey is UNKNOWN. Recovering it requires a bruteforce sweep
-	// against a real captured PRUDPv1 packet (PretendoNetwork's
-	// access-key-extractor -bruteforce, the same workflow that recovered
-	// Art of Balance's 96900116) - see RECON.md. This placeholder will not
-	// authenticate any console until replaced.
-	AccessKey = "00000000"
+	// AccessKey CONFIRMED 2026-09-18 by brute-forcing the HMAC-MD5 signature
+	// of a real captured PRUDPv1 SYN from an EUR console (SYN signature
+	// 37766fec6357614fb200beab21dc05be) against the full 8-hex keyspace -
+	// same workflow that recovered Art of Balance's 96900116. Exactly one key
+	// matched (24-byte SYN options variant). See RECON.md.
+	AccessKey = "783a01d2"
 
 	// NEX library version. UNKNOWN - no capture exists yet. Placeholder
 	// starts at 3.4.0, matching this project's other 2013-era titles

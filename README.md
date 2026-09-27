@@ -14,19 +14,18 @@ Warriors, Trine 2, Mario & Sonic, Sonic & All-Stars Racing Transformed,
 Mario Tennis).
 
 **Unlike every sibling server in this project, no public NEX database
-documents this title**, and no packet capture of it exists yet — the access
-key, exact NEX version, and even whether both regions need separate game
-server IDs are all still open. The full evidence trail is in
-[RECON.md](RECON.md); per-protocol status is in
-[PROTOCOL_COVERAGE.md](PROTOCOL_COVERAGE.md).
+documents this title** — the game server ID and access key below were
+recovered from a real console capture; the NEX version is still an open
+placeholder. The full evidence trail is in [RECON.md](RECON.md); per-protocol
+status is in [PROTOCOL_COVERAGE.md](PROTOCOL_COVERAGE.md).
 
 ## Recovered configuration
 
 | Field | Value | Source |
 |---|---|---|
-| Game server ID (USA) | `10143300` — **unverified hypothesis** | low 32 bits of Title ID `0005000010143300`, following the pattern that held for this project's Art of Balance server |
-| Game server ID (EUR/AUS) | `10145100` — **unverified hypothesis** | low 32 bits of Title ID `0005000010145100` |
-| Access key | **unknown** | no literal value in the binary, no public database entry — needs a bruteforce sweep against a real captured packet, see RECON.md |
+| Game server ID | `10143300` — **confirmed** | a real EUR console's `nex_token` request; shared across both regions (see RECON.md) |
+| Game server ID (EUR/AUS fallback route) | `10145100` — unverified hypothesis, kept only as a fallback | low 32 bits of Title ID `0005000010145100` |
+| Access key | `783a01d2` — **confirmed** | brute-forced against the HMAC-MD5 signature of a real captured PRUDPv1 SYN from an EUR console — see RECON.md |
 | NEX version | `3.4.0` — placeholder guess | closest-era match to this project's other 2013 titles (Trine 2, Sochi 2014) |
 
 The retail RPX (`Game.rpx`) statically links NEX (no `nn_nex` RPL import,
@@ -34,14 +33,14 @@ same as every sibling title) and carries real, substantial Ranking-protocol
 code (`nn::nex::RankingClient`, Wii U-specific leaderboard classes) — see
 RECON.md for the full string/symbol evidence.
 
-### Two regions, ID status unverified
+### Two regions, one confirmed ID
 
 Hot Wheels: World's Best Driver shipped in the USA and Europe (which also
-covers the Australian release) — no Japan release exists. Both game server
-IDs above are registered so **either region's console can connect**, but
-whether both are actually necessary (vs. one shared ID, the pattern every
-other multi-region title in this project ended up needing) is not yet
-confirmed. See RECON.md's "Game server ID hypothesis" section.
+covers the Australian release) — no Japan release exists. A real EUR console
+was confirmed to send the USA-derived ID (`10143300`), matching the pattern
+every other multi-region title in this project ended up needing — one shared
+ID. `10145100` is kept registered only as an unconfirmed fallback route. See
+RECON.md's "Game server ID" section.
 
 ## Scope
 
@@ -125,12 +124,12 @@ truncates it into a fixed-size buffer.
 
 ## Hardware status
 
-**Not yet tested against real hardware.** The access key is unknown, the NEX
-version/wire settings are unverified placeholders, and neither region's game
-server ID is confirmed — see RECON.md for the exact recon workflow (capture
-a real PRUDPv1 packet, bruteforce the access key, iterate on wire settings)
-this project used to recover the same values for Art of Balance and every
-other sibling server.
+**Not yet tested against real hardware.** The game server ID and access key
+are confirmed from a real console capture, but the NEX version and wire
+settings (`LegacyConnectionSignature`, `UseStructureHeader`) are still
+unverified placeholders — see RECON.md for the exact recon workflow this
+project used to recover the same values for Art of Balance and every other
+sibling server.
 
 ## License
 
