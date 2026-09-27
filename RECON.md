@@ -5,8 +5,7 @@ this session's research survives into the repo.
 
 ## The executable
 
-`Game.rpx` (13,599,808 bytes, provided by the operator at
-`C:\Users\evant\Documents\content\Game.rpx`) is a Cafe OS RPX (ELF32BE,
+`Game.rpx` (13,599,808 bytes, provided by the operator) is a Cafe OS RPX (ELF32BE,
 34 sections, several zlib-compressed per the `SHF_RPL_ZLIB` flag). Decompressed
 cleanly to a 54,221,412-byte flat blob with a non-stripped `.strtab`
 (~151k symbol-name strings).
