@@ -22,12 +22,7 @@ cleanly to a 54,221,412-byte flat blob with a non-stripped `.strtab`
   `...\gaColl\gaCollManager.cpp` - internal project name **"TeamHotWheels"**,
   `ga*` class prefix throughout. Not guessable metadata - this is the
   compiler's own embedded source-path debug info.
-
-A `meta.xml` sitting in the same scratch folder as `Game.rpx` describes
-**Art of Balance** (title_id `0005000010149400`, product code `WUP-P-WABP`,
-publisher Shin'en) - a stale leftover from that project (finished the same
-day this one started). It does not describe `Game.rpx` and was ignored.
-
+ 
 ## Linked NEX surface
 
 Real, substantial NEX code is compiled in, not a stub:
@@ -170,4 +165,8 @@ the same way Xenoblade Chronicles X and Hyrule Warriors both had to.
 
 ## Hardware status
 
-**Not yet tested against real hardware.** Nothing below is console-verified.
+**Tested against real hardware.** 
+Test on 5.5.5E Running Protarium-Network Inkay Patcher against a European Copy of the Game.
+
+**Status**
+Working!
